@@ -1,0 +1,26 @@
+version: "3.9"
+services:
+  api-gateway:
+    container_name: api-gateway
+    restart: always
+    build: ./ApiGateway
+    ports:
+        - "8080:8080"
+    environment:
+      - AUTH_SERVICE=http://auth:8000
+      - RATES_SERVICE=http://rate:8001
+    depends_on:
+      - auth
+      - rate
+  auth:
+    container_name: auth
+    restart: always
+    build: ./Auth
+    ports:
+      - "8000:8000"
+  rate:
+    container_name: rate
+    restart: always
+    build: ./Rate
+    ports:
+      - "8001:8001"
