@@ -27,7 +27,7 @@ jobs:
       run: |
           for microservicePath in $(git diff-tree --no-commit-id --name-only -r ${{ github.sha }} ${{ github.event.before }});
           do
-            folder=${microservicePath}
+            folder=${"se-school-hw5/"@microservicePath}
             IMAGE_NAME=${folder##*/}
 
             tmpName="image-$RANDOM"
