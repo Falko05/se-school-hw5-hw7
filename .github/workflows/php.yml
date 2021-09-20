@@ -3,6 +3,10 @@ name: CI for app
 on:
   push:
     branches: [ main ]
+    paths:
+      - "Auth"
+      - "Rate"
+      - "ApiGateway"
 
 jobs:
   build:
