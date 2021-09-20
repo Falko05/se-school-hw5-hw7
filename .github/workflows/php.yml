@@ -22,7 +22,7 @@ jobs:
         password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
         
     - name: Build and push the images
-        run:|
+      run: |
           for microservicePath in $(git diff-tree --no-commit-id --name-only -r ${{ github.sha }} ${{ github.event.before }});
           do
             folder=${microservicePath}
