@@ -37,6 +37,5 @@ jobs:
 
             echo IMAGE_ID=$IMAGE_ID
 
-            docker tag $tmpName $IMAGE_ID
             docker push $IMAGE_ID
           done;
