@@ -25,7 +25,7 @@ jobs:
         
     - name: Build and push the images
       run: |
-          for microservicePath in $(git diff-tree --no-commit-id --name-only -r ${{ github.sha }} ${{ github.event.before }});
+          for microservicePath in $(git diff-tree --no-commit-id --name-only -r ${{ github.sha }} ${{ github.event.before }} | grep "/");
           do
             folder=${microservicePath}
             echo ${folder}
