@@ -33,7 +33,7 @@ jobs:
 
             tmpName="image-$RANDOM"
             docker build $folder --file $folder/Dockerfile --tag $tmpName
-            IMAGE_ID=${IMAGE_NAME,,}
+            IMAGE_ID="${{ secrets.DOCKER_HUB_USERNAME }}/${IMAGE_NAME,,}"
 
             echo IMAGE_ID=$IMAGE_ID
 
