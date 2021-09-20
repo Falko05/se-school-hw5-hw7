@@ -27,8 +27,9 @@ jobs:
       run: |
           for microservicePath in $(git diff-tree --no-commit-id --name-only -r ${{ github.sha }} ${{ github.event.before }});
           do
-            folder=${microservicePath##*/}
-            IMAGE_NAME=${folder}
+            folder=${microservicePath}
+            echo ${folder}
+            IMAGE_NAME=${folder##*/}
 
             tmpName="image-$RANDOM"
             docker build $folder --file $folder/Dockerfile --tag $tmpName
