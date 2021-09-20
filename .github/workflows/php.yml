@@ -29,11 +29,10 @@ jobs:
           do
             folder=${microservicePath%%/*}
 
-            IMAGE_NAME=${folder##*/} | tr '[:upper:]' '[:lower:]'
+            IMAGE_NAME=${folder##*/}
 
-            tmpName="image-$RANDOM"
-            docker build $folder --file $folder/Dockerfile --tag $tmpName
-            IMAGE_ID=$IMAGE_NAME 
+            docker build $folder --file $folder/Dockerfile
+            IMAGE_ID=${IMAGE_NAME,,}
 
             echo IMAGE_ID=$IMAGE_ID
 
