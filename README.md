@@ -1,4 +1,4 @@
-# se-school-hw5 - Microservices
+# se-school-hw5-hw7 - Microservices AND CI
 ## Run
 For a quick start
 
